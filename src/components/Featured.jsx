@@ -1,4 +1,6 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import Book from './ui/Book';
 
 const Featured = () => {
   return (
@@ -9,14 +11,10 @@ const Featured = () => {
             Featured <span className="purple">Books</span>
           </h2>
           <div className="books">
-            <div className="book">
-              <a href="">
-                <figure className="book__img--wrapper">
-                  <img src="https://covers.openlibrary.org/b/id/8091016-L.jpg" alt="" className="book__img" />
-                </figure>
-              </a>
-              
-            </div>
+            <Book />
+            <Book />
+            <Book />
+            <Book />
           </div>
         </div>
       </div>
