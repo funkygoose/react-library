@@ -264,6 +264,9 @@ header {
   padding: 56px 0;
 }
 
+.book__container {
+  padding-top: 24px;
+}
 .books__container {
   padding: 24px 0;
 }
