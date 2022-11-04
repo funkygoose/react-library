@@ -20,10 +20,6 @@ function App() {
     console.log(cart)
   }, [cart])
 
-  useEffect(() => {
-    console.log(cart);
-  }, [cart]);
-
   return (
     <Router>
       <div className="App">
