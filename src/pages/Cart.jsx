@@ -1,6 +1,6 @@
 import React from "react";
 
-const Cart = () => {
+const Cart = ({ cart }) => {
   return (
     <div id="books__body">
       <main id="books_main">
@@ -16,28 +16,31 @@ const Cart = () => {
                 <span className="cart__total">Price</span>
               </div>
               <div className="cart__body">
-                <div className="cart__item">
-                  <div className="cart__book">
-                    <img src="" className="cart__book--img" alt="" />
-                    <div className="cart__book--info">
-                      <span className="cart__book--title">
-                        Crack the Coding
-                      </span>
-                      <span className="cart__book--price">
-                        10$
-                      </span>
-                      <button className="cart__book--remove">
-                        Remove
-                      </button>
+                {cart.map((book) => {
+                  return (
+                    <div className="cart__item">
+                      <div className="cart__book">
+                        <img src={book.url} className="cart__book--img" alt="" />
+                        <div className="cart__book--info">
+                          <span className="cart__book--title">
+                            Crack the Coding
+                          </span>
+                          <span className="cart__book--price">10$</span>
+                          <button className="cart__book--remove">Remove</button>
+                        </div>
+                      </div>
+                      <div className="cart__quantity">
+                        <input
+                          type="number"
+                          min={0}
+                          max={99}
+                          className="cart__input"
+                        />
+                      </div>
+                      <div className="cart__total">$10</div>
                     </div>
-                  </div>
-                  <div className="cart__quantity">
-                    <input type="number" min={0} max={99} className="cart__input"/>
-                  </div>
-                  <div className="cart__total">
-                    $10
-                  </div>
-                </div>
+                  );
+                })}
               </div>
             </div>
             <div className="total">
@@ -53,8 +56,10 @@ const Cart = () => {
                 <span>Total</span>
                 <span>$10.00</span>
               </div>
-              <button className="btn btn__checkout no-cursor"
-               onClick={() => alert(`Haven't got around to doing this :(`)}>
+              <button
+                className="btn btn__checkout no-cursor"
+                onClick={() => alert(`Haven't got around to doing this :(`)}
+              >
                 Proceeed to Checkout
               </button>
             </div>
