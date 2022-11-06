@@ -13,12 +13,16 @@ function App() {
   const [cart, setCart] = useState([]);
 
   function addToCart(book) {
-   setCart([...cart, {...book, quantity:1}])
+    setCart([...cart, { ...book, quantity: 1 }]);
+  }
+
+  function changeQuantity(book) {
+    console.log(book.quantity);
   }
 
   useEffect(() => {
-    console.log(cart)
-  }, [cart])
+    console.log(cart);
+  }, [cart]);
 
   return (
     <Router>
@@ -30,7 +34,12 @@ function App() {
           path="/books/:id"
           render={() => <BookInfo books={books} addToCart={addToCart} />}
         />
-        <Route path="/cart" render={() => <Cart books={books} cart={cart}/>} />
+        <Route
+          path="/cart"
+          render={() => (
+            <Cart books={books} cart={cart} changeQuantity={changeQuantity} />
+          )}
+        />
         <Footer />
       </div>
     </Router>
