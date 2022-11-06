@@ -29,7 +29,8 @@ const Cart = ({ cart }) => {
                           <span className="cart__book--title">
                             Crack the Coding
                           </span>
-                          <span className="cart__book--price">10$</span>
+                          <span className="cart__book--price">${(book.salePrice || 
+                          book.originalPrice).toFixed(2)}</span>
                           <button className="cart__book--remove">Remove</button>
                         </div>
                       </div>

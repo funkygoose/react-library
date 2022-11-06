@@ -1,6 +1,7 @@
 import { books } from "../../data";
 import React from "react";
 import Book from "../Book";
+import Books from "../../pages/Books";
 
 const BestBooks = ({ id }) => {
   return (
@@ -16,7 +17,7 @@ const BestBooks = ({ id }) => {
         })
         .slice(0, 4)
         .map((book) => {
-          return <Book book={book} key={book.id} />;
+          return <Books book={book} key={book.id} />;
         })}
     </div>
   );

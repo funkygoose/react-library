@@ -1,10 +1,11 @@
 import React from "react";
 import { useParams } from "react-router";
-import Ratings from "../components/ui/Ratings";
+import Ratings from "../components/ui/Rating";
 import Price from "../components/ui/Price";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import BestBooks from "../components/ui/BestBooks";
+import Rating from "../components/ui/Rating";
 
 const BookInfo = ({ books, addItemToCart }) => {
   const { id } = useParams();
@@ -29,7 +30,7 @@ const BookInfo = ({ books, addItemToCart }) => {
               </figure>
               <div className="book__selected--description">
                 <h2 className="book__selected--title">{book.title}</h2>
-                <Ratings rating={book.rating} />
+                <Rating rating={book.rating} />
                 <div className="book__selected--price">
                   <Price
                     originalPrice={book.originalPrice}
