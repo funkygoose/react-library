@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router";
 import Ratings from "../components/ui/Rating";
 import Price from "../components/ui/Price";
@@ -8,9 +8,14 @@ import BestBooks from "../components/ui/BestBooks";
 import Rating from "../components/ui/Rating";
 import Book from "../components/ui/Book";
 
-const BookInfo = ({ books, addItemToCart }) => {
+const BookInfo = ({ books, addToCart, cart }) => {
   const { id } = useParams();
   const book = books.find((book) => +book.id === +id);
+  const [added, setAdded] = useState(false);
+
+  function addBookToCart(book) {
+    addToCart(book);;
+  }
 
   return (
     <div id="books__body">
@@ -27,9 +32,7 @@ const BookInfo = ({ books, addItemToCart }) => {
             </div>
             <div className="book__selected">
               <figure className="book__selected--figure">
-                <img className="book__selected--img" 
-                
-                src={book.url} alt="" />
+                <img className="book__selected--img" src={book.url} alt="" />
               </figure>
               <div className="book__selected--description">
                 <h2 className="book__selected--title">{book.title}</h2>
@@ -57,9 +60,13 @@ const BookInfo = ({ books, addItemToCart }) => {
                     voluptas.
                   </p>
                 </div>
-                <button className="btn" onClick={() => addItemToCart(book)}>
-                  Add to Cart
-                </button>
+                {added ? (
+                  <button className="btn">Checkout</button>
+                ) : (
+                  <button className="btn" onClick={() => addBookToCart(book)}>
+                    Add to Cart
+                  </button>
+                )}
               </div>
             </div>
           </div>
@@ -70,7 +77,7 @@ const BookInfo = ({ books, addItemToCart }) => {
               <h2 className="book__selected--title--top">Recommended Books</h2>
             </div>
 
-           <BestBooks />
+            <BestBooks />
           </div>
         </div>
       </main>
