@@ -14,6 +14,7 @@ const BookInfo = ({ books, addToCart, cart }) => {
   const [added, setAdded] = useState(false);
 
   function addBookToCart(book) {
+    setAdded(true);
     addToCart(book);;
   }
 
