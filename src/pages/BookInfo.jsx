@@ -16,10 +16,11 @@ const BookInfo = ({ books, addToCart, cart }) => {
     addToCart(book);
   }
 
-  function bookExistsOnCart() {
-    const dupe = cart.find(book => book.id === +id);
-  }
+  // function bookExistsOnCart() {
+  //   return cart.find(book => book.id === +id);
+  // }
 
+  // function crashes book.jsx
   return (
     <div id="books__body">
       <main id="books__main">
