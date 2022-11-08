@@ -8,13 +8,16 @@ import Rating from "../components/ui/Rating";
 const BookInfo = ({ books, addToCart, cart }) => {
   const { id } = useParams();
   const book = books.find((book) => +book.id === +id);
+  const [added, setAdded] = useState(false);
+  
 
   function addBookToCart(book) {
+    setAdded(true);
     addToCart(book);
   }
 
   function bookExistsOnCart() {
-    return cart.find(book => book.id === +id);
+    const dupe = cart.find(book => book.id === +id);
   }
 
   return (
@@ -60,7 +63,7 @@ const BookInfo = ({ books, addToCart, cart }) => {
                     voluptas.
                   </p>
                 </div>
-                {bookExistsOnCart() ? (
+                {added ? (
                   <button className="btn">Checkout</button>
                 ) : (
                   <button className="btn" onClick={() => addBookToCart(book)}>
@@ -71,6 +74,7 @@ const BookInfo = ({ books, addToCart, cart }) => {
             </div>
           </div>
         </div>
+
         <div className="books__container">
           <div className="row">
             <div className="book__selected--top">
