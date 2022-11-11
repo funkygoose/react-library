@@ -1,6 +1,12 @@
 import React from "react";
 
 const Cart = ({ cart, changeQuantity }) => {
+  const total = () => {
+    let counter
+  }
+  const subTotal = () => {
+
+  }
   return (
     <div id="books__body">
       <main id="books_main">
@@ -40,10 +46,11 @@ const Cart = ({ cart, changeQuantity }) => {
                           min={0}
                           max={99}
                           className="cart__input"
-                          onChange={(event) => changeQuantity(event.target.value)}
+                          value={book.quantity}
+                          onChange={(event) => changeQuantity(book, event.target.value)}
                         />
                       </div>
-                      <div className="cart__total">$10</div>
+                      <div className="cart__total">${((book.salePrice || book.originalPrice) * book.quantity).toFixed(2)}</div>
                     </div>
                   );
                 })}
