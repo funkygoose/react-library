@@ -2,11 +2,13 @@ import React from "react";
 
 const Cart = ({ cart, changeQuantity }) => {
   const total = () => {
-    let counter
-  }
-  const subTotal = () => {
-
-  }
+    let price = 0;
+    cart.forEach((item) => {
+      price +=(item.salePrice || item.originalPrice).toFixed(2);
+    });
+    
+  };
+  const subTotal = () => {};
   return (
     <div id="books__body">
       <main id="books_main">
@@ -35,8 +37,9 @@ const Cart = ({ cart, changeQuantity }) => {
                           <span className="cart__book--title">
                             Crack the Coding
                           </span>
-                          <span className="cart__book--price">${(book.salePrice || 
-                          book.originalPrice).toFixed(2)}</span>
+                          <span className="cart__book--price">
+                            ${(book.salePrice || book.originalPrice).toFixed(2)}
+                          </span>
                           <button className="cart__book--remove">Remove</button>
                         </div>
                       </div>
@@ -47,10 +50,17 @@ const Cart = ({ cart, changeQuantity }) => {
                           max={99}
                           className="cart__input"
                           value={book.quantity}
-                          onChange={(event) => changeQuantity(book, event.target.value)}
+                          onChange={(event) =>
+                            changeQuantity(book, event.target.value)
+                          }
                         />
                       </div>
-                      <div className="cart__total">${((book.salePrice || book.originalPrice) * book.quantity).toFixed(2)}</div>
+                      <div className="cart__total">
+                        $
+                        {(
+                          (book.salePrice || book.originalPrice) * book.quantity
+                        ).toFixed(2)}
+                      </div>
                     </div>
                   );
                 })}
