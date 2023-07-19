@@ -1,33 +1,32 @@
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import LibraryLogo from '../assets/Library.svg';
+import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import LibraryLogo from "../assets/Library.svg";
 import { Link } from "react-router-dom";
 
-const Nav = ({numberOfItems}) => {   
+const Nav = ({ numberOfItems }) => {
   function openMenu() {
     document.body.classList += " menu--open";
   }
   function closeMenu() {
-    document.body.classList.remove ("menu--open");
+    document.body.classList.remove("menu--open");
   }
-  
-  
+
   return (
     <nav>
       <div className="nav__container">
         <Link to="/">
           <img className="logo" src={LibraryLogo} alt="" />
-        </Link> 
+        </Link>
         <ul className="nav__links">
           <li className="nav__list">
-            <Link to="/" className='nav__link'>
+            <Link to="/" className="nav__link">
               Home
-            </Link> 
+            </Link>
           </li>
           <li className="nav__list">
-            <Link to="/books" className='nav__link nav__link--primary'>
+            <Link to="/books" className="nav__link nav__link--primary">
               Books
-            </Link> 
+            </Link>
           </li>
           <button className="btn__menu" onClick={openMenu}>
             <FontAwesomeIcon icon="bars" />
@@ -36,10 +35,9 @@ const Nav = ({numberOfItems}) => {
             <Link to="/cart" className="nav__link">
               <FontAwesomeIcon icon="shopping-cart" />
             </Link>
-            {
-              numberOfItems > 0 && <span className="cart__length">{numberOfItems}</span>
-            } 
-            
+            {numberOfItems > 0 && (
+              <span className="cart__length">{numberOfItems}</span>
+            )}
           </li>
         </ul>
         <div className="menu__backdrop">
@@ -67,7 +65,6 @@ const Nav = ({numberOfItems}) => {
       </div>
     </nav>
   );
-}
-
+};
 
 export default Nav;
