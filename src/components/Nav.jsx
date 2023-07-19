@@ -16,7 +16,7 @@ const Nav = ({numberOfItems}) => {
     <nav>
       <div className="nav__container">
         <Link to="/">
-          <img src={LibraryLogo} alt="" className="logo"/>
+          <img className="logo" src={LibraryLogo} alt="" />
         </Link> 
         <ul className="nav__links">
           <li className="nav__list">
@@ -25,7 +25,7 @@ const Nav = ({numberOfItems}) => {
             </Link> 
           </li>
           <li className="nav__list">
-            <Link to="/books" className='nav__link'>
+            <Link to="/books" className='nav__link nav__link--primary'>
               Books
             </Link> 
           </li>
@@ -53,12 +53,12 @@ const Nav = ({numberOfItems}) => {
               </a>
             </li>
             <li className="menu__list">
-              <a href="/" className="menu__link">
+              <a href="/books" className="menu__link">
                 Books
               </a>
             </li>
             <li className="menu__list">
-              <a href="/" className="menu__link">
+              <a href="/cart" className="menu__link">
                 Cart
               </a>
             </li>

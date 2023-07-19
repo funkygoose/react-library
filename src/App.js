@@ -1,13 +1,13 @@
-import "./App.css";
-import Nav from "./components/Nav";
-import Footer from "./components/Footer";
+import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Books from "./pages/Books";
-import { books } from "./data";
 import BookInfo from "./pages/BookInfo";
+import { books } from "./data";
+import Nav from "./components/Nav";
+import Footer from "./components/Footer";
 import Cart from "./pages/Cart";
-import { useEffect, useState } from "react";
+import "./App.css";
 
 function App() {
   const [cart, setCart] = useState([]);
