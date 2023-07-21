@@ -7,6 +7,7 @@ const Nav = ({ numberOfItems }) => {
   function openMenu() {
     document.body.classList += " menu--open";
   }
+
   function closeMenu() {
     document.body.classList.remove("menu--open");
   }
@@ -40,25 +41,26 @@ const Nav = ({ numberOfItems }) => {
             )}
           </li>
         </ul>
+
         <div className="menu__backdrop">
           <button className="btn__menu btn__menu--close" onClick={closeMenu}>
             <FontAwesomeIcon icon="times" />
           </button>
           <ul className="menu__links">
             <li className="menu__list">
-              <a href="/" className="menu__link">
+              <Link to="/" className="menu__link" onClick={closeMenu}>
                 Home
-              </a>
+              </Link>
             </li>
             <li className="menu__list">
-              <a href="/books" className="menu__link">
+              <Link to="/books" className="menu__link" onClick={closeMenu}>
                 Books
-              </a>
+              </Link>
             </li>
             <li className="menu__list">
-              <a href="/cart" className="menu__link">
+              <Link to="/cart" className="menu__link" onClick={closeMenu}>
                 Cart
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

@@ -229,7 +229,7 @@ LANDING
 }
 
 header {
-  height: calc(124vh - 80px);
+  height: calc(100vh - 80px);
 }
 
 .header__container {
@@ -264,9 +264,6 @@ header {
   padding: 56px 0;
 }
 
-.book__container {
-  padding-top: 24px;
-}
 .books__container {
   padding: 24px 0;
 }
@@ -407,7 +404,6 @@ FEATURES
 .book__title--skeleton {
   height: 21px;
   width: 100%;
-  
 }
 
 .book__rating--skeleton {

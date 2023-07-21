@@ -1,8 +1,8 @@
 import React from "react";
-import { books } from '../data';
-import Book from "./ui/Book";
+import Book from "./Book";
+import { books } from "../data";
 
-const Discounted = () => {
+const Features = () => {
   return (
     <section id="recent">
       <div className="container">
@@ -12,11 +12,12 @@ const Discounted = () => {
           </h2>
           <div className="books">
             {books
-            .filter(book => book.salePrice > 0)
-            .slice(0, 8)
-            .map((book) => (
-              <Book book={book} key={book.id} />
-            ))}
+              .slice()
+              .filter(book => book.salePrice > 0)
+              .slice(0, 8)
+              .map((book) => (
+                <Book book={book} key={book.id} />
+              ))}
           </div>
         </div>
       </div>
@@ -24,4 +25,4 @@ const Discounted = () => {
   );
 };
 
-export default Discounted;
+export default Features;
